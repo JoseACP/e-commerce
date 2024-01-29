@@ -1,10 +1,11 @@
-import { Select, FormControl, VStack, ScrollView, Heading, Box, Text, Flex, Pressable, Image, HStack, Spacer, View} from 'native-base'
-import React from 'react'
+import { Select, FormControl, VStack, ScrollView, Heading, Box, Text, Flex, Pressable, Image, HStack, Spacer, View, CheckIcon} from 'native-base'
+import React, { useState } from 'react'
 import Colors from '../color'
 import Rating from './Rating'
 import Message from './Notifications/Message'
 
 export default function Review() {
+    const [ratings, setRattings] = useState("")
   return (
     <Box my={9}>
         <Heading bold fontSize={15} mb={2}>
@@ -44,7 +45,19 @@ export default function Review() {
                     >
                         Rating
                     </FormControl.Label>
-                    <Select bg={Colors.subred} borderWidth={0} rounded={5} py={3} placeholder='Choose rate'></Select>
+                    <Select bg={Colors.subred} borderWidth={0} rounded={5} py={3} placeholder='Choose rate'
+                    _selectedItem={{
+                        bg:Colors.subred,
+                        endIcon:<CheckIcon size={2}/>
+                    }}
+                    value={ratings}
+                    onValueChange={(e) => setRattings(e)}
+
+                    >
+                        <Select.Item label='1 - Poor' value='1'/>
+                        <Select.Item label='2 - Fair' value='2'/>
+                        <Select.Item label='3 - poor' value='3'/>
+                    </Select>
                     
                 </FormControl>
             </VStack>

@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native-web'
 
-function MapScreen() {
+function PaymentScreen() {
   return (
     <View>
-        <Text>MapScreen</Text>
+        <Text>PaymentScreen</Text>
     </View>
   )
 }
 
-export default MapScreen
+export default PaymentScreen
